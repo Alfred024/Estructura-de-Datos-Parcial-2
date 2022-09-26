@@ -1,0 +1,21 @@
+Pilas Dinámicas (Con apuntadores)
+
+Las estructuras utilizarán memoria incluso cuando la RAM esté por alcanzar un límite, incluso puede sobrepasar la capacidad de este.
+
+Cunado movemos los archivos de acceso aleatorio con el método seek, estamos moviendo el apuntador.
+
+Los punteros funcionan a partir de autoapuntarse (más bien a un elemento de su misma composición), un elemento se define en términos de él mismo como estructura
+
+Un objeto guarda datos de la dirección en memoria de dicho objeto, por lo que nos podríamos referir a un objeto como un apuntador.
+
+En la clase Pila, deeremos tener un dato de tipo Nodo, el cual nos ayudará a tener un punto de partida de aquel bloque que tendrá enlazados a los demás bloques los cuales tendrán enlazados a los demás.
+
+------------------------------------>
+Apuntes a parte
+
+Apuntadores: En lenguaje C, los pauntadores permiten amnipular de manera directa las localidades de memria RAM de la computadora. 
+
+Aplicaciones apuntadores: Trabajar a nivel memoria genera ventajas como la rapidéz para manipular datos. 
+
+El cifredo César: En el siglo I, Julio César usó el cifrado que se muestra en la imágen para enviar órdenes a sus generales en los campos de batalla. El método consiste en desplazar el abecedario 3 posiciones, es decir, en vez de iniciar en A, el abecedario inicia en D
+

@@ -1,0 +1,13 @@
+Pilas
+
+(Clase---------------------------->>>>>
+Almacena y recupera datos siguiendo a un orden estrcito. Son estrucutruas LIFO o FILO. Solo se puede acceder por un únic lugar de la pila (en caso de memoria dinámica). 
+
+Sigueindo la lógica de las pilas, estas solopueden agregar o elimnar un elemento desde el tope o cima de esta. 
+
+Puede implementase guardando los datso en un array (memeoria estática), aunqu también puede usarse un VECTOR. Otra forma sería creando una lista enlazada(memoria dinámica), donde cada elemento representa un Nodo, y el límite de los datos lo determina la memoria del ordenador. 
+
+En el TDA los datos almacenados ueden ser de cualquier tipo, 
+<<<<<<<----------------------------------------------
+
+

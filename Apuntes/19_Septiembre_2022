@@ -1,0 +1,30 @@
+
+19/Septiembre/2022
+
+Destructores: Liberan la memoria, lo contrario a un new, en Java no existe la implementación de estos.
+NO siguen un orden de llegada, dependen del factor de orden (llegada) y aleatorio (salida), osea que si un 
+elem. llega a la lista, lo ordenas dependiendo al critero que establezcas, y en la salida solo será así si no existe
+
+Los news generan direcciones/apuntadores
+Cola de prioridades: Deberá tener un arámetro en el método IN para determinar cómo 
+
+Listas: NO importa el orden de llegada de los datos
+
+Clasificación: 
+	Simples
+	Dobles
+	Circulares
+
+/*
+ * public void showData(){
+        Nodo auxiliar = start;
+        
+        System.out.print("Inicio --> ");
+        while(auxiliar != null){
+            System.out.print("["+auxiliar.value+"]");
+            auxiliar = auxiliar.next;
+        }System.out.println(" <-- Fin|");
+    }
+ */
+
+ Listas doblemente enlazadas: Procesos bancarios

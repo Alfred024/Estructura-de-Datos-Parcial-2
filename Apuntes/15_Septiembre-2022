@@ -1,0 +1,11 @@
+Cola simple:
+
+Cola de prioridades: LILO/FIFO
+
+Imprimirá primero a aquellos que tengan mayor prioridad  
+
+
+ Else representa un Overflow cuandio tartamos de ingersar e nColas
+que se han quedado sin esoacio  
+
+Manejar errores inválidos ---> Variable booleana que evalúe si es error   

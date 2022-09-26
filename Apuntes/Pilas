@@ -1,0 +1,13 @@
+Pilas (LIFO o FILO)
+Implementación estática o dinámica
+
+Dos tipos de errores ---> StackOverflow/StackUnderFlow(en memoria dinámica es donde ocurre)
+
+OverFlow: Cuando el tamaño es fijo, hay un máximo de objetos que puedes almacenar, por lo que si intentas meter más de lo declarado se f¿genera un Overflow.
+
+UnderFlow: Cuando quieres sacar más elementos de los que existen en el Stack.
+
+Tareas:
+	-Acabar apuntes y mapa mental de progra
+	-Problemario de IO
+	-Cálculo (portafolio)

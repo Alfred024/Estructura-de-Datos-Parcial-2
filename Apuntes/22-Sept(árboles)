@@ -1,0 +1,54 @@
+Unidad 4: Estructuras no lineales
+
+(Árboles) --> Como una lista de listas
+
+Nos permiten ahorrar tiempo en acciones como en eliminar datos de la estructura
+Problemas como las torres de Hanoi es un ejemplo de un problema el cual requiere de una gran capacidad de procesamiento para resolverlo.
+
+Mover un apuntador tarde 3nanosegundos (aprox.)
+
+Estructuras como los árboles ofrecen la posibilidad de discriminar datos de manera que la busqueda de alguno de ellos sea más rápida y eficiente. Al contrario de las estructuras lineales, en las que es necesario recorrer todos los elementos hasta encontrar el deseado
+
+Estructura de un árbol: 
+	Raíz(Start)--> Ramas -->Hojas
+
+-Clasificación de los árboles (En base al número de hijos):
+	*Árbol binario (2hijos)  --> Tiene hijo izquierdo y derecho
+	*Árboles terciarios, cuaterniarios, quintuario, n-arios/bosques
+
+class Nodo{
+	Nodo raiz;
+	Nodo izq, der;
+	int value;
+
+	public Nodo(int value){
+		Nodo raiz = izq = der = null;
+		this.value = value;
+	}
+}
+
+class Arbol{
+	
+	Nodo raiz;
+
+}
+
+Métodos: Insertar, Borrar
+
+Es necesario esablecer el orden que le daremos a la inserción de los datos del árbol
+
+-Árboles balanceados: 
+	Balanceado diferente (Cantiad de nodos igual de un lado del árbol que del otro) a equilibrado ()
+
+	Insertar nodos: 
+	-Si el árbol está vacío newNodo == raíz
+	-Si no, se busca el lugar donde va y se inserta
+
+
+	Eliminar nodos: 
+	-Subir el antecesor
+
+	Cuando se borra un elmento con un hojo, el hijo ocupará el lugar del borrado.
+
+
+Al degradarse las listas, trae consecuencias en la efectividad que buscamos en el manejo de datos de la lista

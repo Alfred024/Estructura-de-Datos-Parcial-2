@@ -1,0 +1,32 @@
+Utilización de las pilas
+	
+	-Expresiones matemáticas (prefijas y postfijas):
+	Lineal infija --> 3+A/(Z*(2-K/7)-A)+8
+
+Jerarquía de operadores
+	Cómo se que un operador es unitario? A la izq debe haber un operador (excepto el paréntesis que cierra)
+	Los operadroes unitarios se resuleven de derecha a izquierda
+	Los operadores binarios se resuelven de izquierda a derecha
+
+	Infija a postfija
+	1.- Segmentar la expresión en tokens (elemento ident. de información)
+		*constantes 
+		*vars.
+		*operadores
+
+	2.- Por cada token
+		2.1.- Si es un operando se escribe
+		2.2.- Si no 
+				Si es un "(" se apila (PUSH)
+					Si es ")" saca a todos imprimiendolos y se eliminan los paréntesis
+					Si no
+					Si su jerarquía es igual o menor a la del tope 
+					se saca el tope, se imprime y se apila el nuevo
+
+		El que está por debajo debe ser de menor de jerarquía, por debajo de el que ingresará, no puede haber alguien con igual o mayor jerarquía
+Jan Lukasirich??? s
+
+Cuando nos salió mal
+si es un operando, se apila, si es un operador, se aplica sacando los necesarios y apilando el resultado
+
+		-Manejo de estibadores 
