@@ -1,0 +1,22 @@
+Borrar en un árbol
+
+Problemas: NO sabemos su profundidad, ni sabemos si tiene hijos
+	Pregunta 1: Si raíz == null ---> UNDERFLOW
+	Caso 2: Busqueda
+
+
+	Método de busqueda y retorno del elemento al cual queremos borrar: 
+	while(aux != null && aux.info != dato){
+		vigilante = aux;
+		if(dato < aux.value){
+			izq
+		}else{
+			der
+		}
+	}
+
+
+	Para borrar hay #3 casos:
+		1#: Si noddo que buscamos no tienen hijos, solo borramos el nodo
+		2#: Si derecho es null, buscamos en izquierdo
+		3#: Si izquierdo es null, buscamos en derecho

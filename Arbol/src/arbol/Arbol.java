@@ -75,6 +75,7 @@ class Tree{
     public Nodo buscarNodo2(int searched){
         Nodo aux = raiz;
         Nodo vigilante = null;
+        //while(aux!= null && aux.info != searched)
         while(aux.izq != null && aux.der != null){
             vigilante = aux;
             if(searched <= aux.value){
@@ -97,6 +98,7 @@ class Tree{
         }else{
             temp2 = temp2.der;
         }
+        
         if(temp2.izq != null){
             temp2 = temp2.izq;
             while(temp2.der != null){
@@ -121,14 +123,20 @@ class Tree{
     
     public Nodo delete(int searched){
         
-        Nodo temp = buscarNodo(searched);
-        Nodo replace = buscarIzqoDer(searched);
-        if(searched <= temp.value){
-            temp.izq = replace;
+        if(raiz == null){
+            System.out.println("UNDERFLOW");
+            return null;
         }else{
-            temp.der = replace;
+            Nodo temp = buscarNodo(searched);
+            Nodo replace = buscarIzqoDer(searched);
+            if(searched <= temp.value){
+                temp.izq = replace;
+            }else{
+                temp.der = replace;
+            }
+            return temp;
         }
-        return temp;
+        
     }
     
 }
