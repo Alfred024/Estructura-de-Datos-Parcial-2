@@ -104,9 +104,14 @@ class Arbol{
         }
     }
     
-    public Nodo borradoSimple(){
-        return null;
-    }
+    //Método ejecutado si se cumple el caso #2
+    //Caso #2: Evaluará primero si se puede ir por la izquierda, si hay hijos en la rama izquierda
+    //este será el camino que siga, lo que significa que buscará el elemento mayor de dicho camino, en caso
+    //de que no tenga nodos en el lado izquierdo, evaluará los de la derecha, en el que buscará al nodo con menor valor
+    
+    //El método cumple la función de desenlazar aquel al que ocuparemos como reemplazo, y de retornar el valor 
+    //para reemplazarlo en el lugar que le corresponde, no sin antes destruir el enlace de aquel que será el reemplazo
+    
     
     public int buscarIzqoDer(Nodo padre, boolean izqOder){
         Nodo res = padre;
