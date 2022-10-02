@@ -68,6 +68,7 @@ class Arbol{
     }
     
     
+    //Falta contemplar el caso de la eliminación de la raíz
     public void out(int toDelete){
         if(raiz == null){
             System.out.println("UNDERFLOW");
@@ -117,6 +118,7 @@ class Arbol{
         Nodo res = padre;
         Nodo vigilante = null;
         if(!izqOder){
+            //BUusca el elemento más grande en la rama izquierda (Antecesor)
             res = res.izq;
             while(res.der != null){
                 if(res.der.der == null){
@@ -126,6 +128,7 @@ class Arbol{
             } 
             vigilante.der = null;
         }else{
+            //BUusca el elemento más pequeño en la rama derecha (Postdecesrorr)
             res = res.der;
             while(res.izq != null){
                 res = res.der;
@@ -137,6 +140,7 @@ class Arbol{
         }
         return res.value;
     }
+    
     
 }
 

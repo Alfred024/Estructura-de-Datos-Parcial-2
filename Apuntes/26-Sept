@@ -20,3 +20,33 @@ Problemas: NO sabemos su profundidad, ni sabemos si tiene hijos
 		1#: Si noddo que buscamos no tienen hijos, solo borramos el nodo
 		2#: Si derecho es null, buscamos en izquierdo
 		3#: Si izquierdo es null, buscamos en derecho
+
+Hay que tener en cuneta si el padre/vigilante está referenciado desde la derecha o desde la izquierda
+
+Casos del árbol
+	Si izq es dif de null el que buscamos está en el derecho
+
+Árboles AVL (árbol binario ordenado):
+
+Tiene reglas de inserción y de borrado, 
+El nodo tendrá un nuevo atributo: Carga
+	La carga se determina conforme a la altura del árbol
+	Las alturas se manejan por niveles: 
+	Nivel 0 == Nodo más alto == raíz
+
+Se considera AVL si para todos los nodos, la altura de sus ramas no es mayor de 1 o -1
+
+
+Adelson Velgs Hilandis
+
+INsertar: Buscamos el lugar que le corresponde, y el newNodo entra con carga 0
+	+1 si va por la derecha
+	-1 si va por la izquierda
+
+	Si el padre cmabia a -1 o 1, seguimos afectando la rama hasta encontrar un 0 o un nodo crítico
+
+Una vez que se cumpla el caso anterior, se ejecutarán "algoritmos de rotación"
+	
+	-Rotaciones SImples:
+	 	Si == 2: Rotación simple a la izquierda
+	 	Si == -2: Rotación simple a la derecha
