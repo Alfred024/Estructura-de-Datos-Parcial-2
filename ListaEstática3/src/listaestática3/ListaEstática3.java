@@ -5,11 +5,21 @@ package listaestática3;
 public class ListaEstática3 {
 
     public static void main(String[] args) {
-        Lista x = new Lista(6);
-        x.in(10); x.in(20); x.in(15); x.in(17); x.in(1); //x.in(16);
-        //x.out(1); x.out(10);
+        Lista x = new Lista(7);
+        x.in(10); x.in(20); x.in(15); x.in(25); x.in(30); x.in(5); x.in(35);
+        x.out(5); x.out(10); x.out(15);
+        x.in(36); //x.in(5);System.out.print(x.datos[1]+" ");
+        System.out.print(x.datos[2]+" ");System.out.print(x.datos[3]+" ");
+        System.out.print(x.datos[4]+" ");System.out.print(x.datos[5]+" ");
+        System.out.print(x.datos[6]+" ");System.out.print(x.datos[0]+" ");
         
-        x.showData();
+
+
+        //x.in(5); 
+        /*System.out.print(x.datos[2]+" ");System.out.print(x.datos[3]+" ");
+        System.out.print(x.datos[4]+" ");System.out.print(x.datos[5]+" ");
+        System.out.print(x.datos[6]+" ");System.out.print(x.datos[0]+" ");
+        System.out.println("End: "+x.end);*/
     }
     
 }
@@ -32,9 +42,12 @@ class Lista{
             System.out.println("OVERFLOW");
         }else{
             disponibles--;
-            recorrerDatos(newValue);
-            if(end == datos.length-1 && datos[end] != 0){
+            
+            if(end == datos.length-1 && datos[end] != 0 && start != 0){
                 end = 0;
+                recorrerDatos(newValue);
+            }else{
+                recorrerDatos(newValue);
             }
         }
     }
@@ -85,8 +98,54 @@ class Lista{
             end++;
         }
         
+        //CASO B
         else{
+            System.out.println("I: "+buscarIndex(searched));
+            System.out.println("Dato a agregar: "+searched);
             
+            if(end == buscarIndex(searched)){
+                datos[buscarIndex(searched)] = searched;
+            }
+            if(start == buscarIndex(searched)){
+                datos[start-1] = searched;
+                start--;
+            }
+            
+            
+            /*int vueltas=0;
+            if(end == start-1){
+                datos[end] = datos[datos.length-1];
+            }else{
+                datos[vueltas+1] = datos[vueltas];
+            }
+            
+            
+            //Primero da una vuelta del start al final del array
+            int indexOfnewElement = buscarIndex(searched);
+            
+            
+            
+            int limite = datos.length-1;
+            
+            for (vueltas = indexOfnewElement; vueltas <= limite; limite--) {
+                if(end == 0){
+                    datos[end] = datos[datos.length-1];
+                }else{
+                    datos[limite+1] = datos[limite];
+                }
+            }
+            
+            //Y luego tienen que dar otra vuelta del principio al final del array
+            for (vueltas = end; vueltas > 0; vueltas--) {
+                if(end == start-1){
+                    datos[end] = datos[datos.length-1];
+                }else{
+                    datos[vueltas+1] = datos[vueltas];
+                }
+            }
+            
+            datos[indexOfnewElement] = searched;*/
+            end++;
         }
     }
     
@@ -96,11 +155,16 @@ class Lista{
             return start;
         }else{
             int index=start;
-            while(searched > datos[index] && datos[index] != 0){
+            while(datos[index] != 0 && searched > datos[index]){
                 if(index == datos.length-1){
                     index = 0;
                 }else{
                     index++;
+                }
+                
+                if(datos[index] < datos[start] && datos[index] != 0){
+                    index = 0;
+                    datos[index] = 0;
                 }
             }
             return index;
@@ -126,6 +190,7 @@ class Lista{
             }
         }else{
             System.out.println("CASO B");
+            System.out.println("Impresión de datos pendiente");
         }
         
     }
