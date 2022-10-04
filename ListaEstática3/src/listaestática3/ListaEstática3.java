@@ -8,18 +8,15 @@ public class ListaEstática3 {
         Lista x = new Lista(7);
         x.in(10); x.in(20); x.in(15); x.in(25); x.in(30); x.in(5); x.in(35);
         x.out(5); x.out(10); x.out(15);
-        x.in(36); //x.in(5);System.out.print(x.datos[1]+" ");
-        System.out.print(x.datos[2]+" ");System.out.print(x.datos[3]+" ");
-        System.out.print(x.datos[4]+" ");System.out.print(x.datos[5]+" ");
-        System.out.print(x.datos[6]+" ");System.out.print(x.datos[0]+" ");
+        x.in(36); //x.in(28);
         
-
-
-        //x.in(5); 
-        /*System.out.print(x.datos[2]+" ");System.out.print(x.datos[3]+" ");
+        System.out.print(x.datos[3]+" ");
         System.out.print(x.datos[4]+" ");System.out.print(x.datos[5]+" ");
-        System.out.print(x.datos[6]+" ");System.out.print(x.datos[0]+" ");
-        System.out.println("End: "+x.end);*/
+        System.out.print(x.datos[6]+" ");System.out.print(x.datos[0]+" "); System.out.print(x.datos[1]+" "); 
+        System.out.println("\n");
+        System.out.println("End: "+x.end);
+        System.out.println("Disponibles: "+x.disponibles);
+        
     }
     
 }
@@ -43,11 +40,18 @@ class Lista{
         }else{
             disponibles--;
             
-            if(end == datos.length-1 && datos[end] != 0 && start != 0){
-                end = 0;
-                recorrerDatos(newValue);
+            //Si el dato a insertar es menor a el que está en el principio
+            if(datos[buscarIndex(newValue)] <= datos[start]){
+                datos[start-1] = newValue;
+                start--;
             }else{
-                recorrerDatos(newValue);
+                //Esta condicional no shará saltar del caso A al caso B
+                if(end == datos.length-1 && datos[end] != 0 && start != 0){
+                    end = 0;
+                    recorrerDatos(newValue);
+                }else{
+                    recorrerDatos(newValue);
+                }
             }
         }
     }
@@ -73,16 +77,15 @@ class Lista{
                 datos[vueltas] = datos[vueltas+1];
             }end--;
         }
-        
         else{
             
         }
     }
     
     public void recorrerDatos(int searched){
+        int vueltas;
+        int limite = end;
         if(casoAoB()){
-            int vueltas;
-            int limite = end;
             int indexOfnewElement = buscarIndex(searched);
             for (vueltas = buscarIndex(searched); vueltas <= limite; limite--) {
                 if(end == datos.length-1 && disponibles == 0){
@@ -94,58 +97,11 @@ class Lista{
                 }
             }
             datos[indexOfnewElement] = searched;
-            
             end++;
         }
         
-        //CASO B
         else{
-            System.out.println("I: "+buscarIndex(searched));
-            System.out.println("Dato a agregar: "+searched);
             
-            if(end == buscarIndex(searched)){
-                datos[buscarIndex(searched)] = searched;
-            }
-            if(start == buscarIndex(searched)){
-                datos[start-1] = searched;
-                start--;
-            }
-            
-            
-            /*int vueltas=0;
-            if(end == start-1){
-                datos[end] = datos[datos.length-1];
-            }else{
-                datos[vueltas+1] = datos[vueltas];
-            }
-            
-            
-            //Primero da una vuelta del start al final del array
-            int indexOfnewElement = buscarIndex(searched);
-            
-            
-            
-            int limite = datos.length-1;
-            
-            for (vueltas = indexOfnewElement; vueltas <= limite; limite--) {
-                if(end == 0){
-                    datos[end] = datos[datos.length-1];
-                }else{
-                    datos[limite+1] = datos[limite];
-                }
-            }
-            
-            //Y luego tienen que dar otra vuelta del principio al final del array
-            for (vueltas = end; vueltas > 0; vueltas--) {
-                if(end == start-1){
-                    datos[end] = datos[datos.length-1];
-                }else{
-                    datos[vueltas+1] = datos[vueltas];
-                }
-            }
-            
-            datos[indexOfnewElement] = searched;*/
-            end++;
         }
     }
     
@@ -161,9 +117,7 @@ class Lista{
                 }else{
                     index++;
                 }
-                
                 if(datos[index] < datos[start] && datos[index] != 0){
-                    index = 0;
                     datos[index] = 0;
                 }
             }
@@ -197,6 +151,40 @@ class Lista{
 }
 
 
-            /*System.out.println("A insertar: "+searched);
-            System.out.println("LI: "+buscarIndex(searched));
-            System.out.println("LS: "+limite);*/
+/*else{
+            System.out.println("Dato a agregar: "+searched);
+            System.out.println("Dónde irá: "+buscarIndex(searched));
+            //Caso 1: El dato irá al final 
+            if(end == buscarIndex(searched)){
+                datos[buscarIndex(searched)] = searched;
+            }else{
+                //Caso 2: El dato irá al principio de la lista (nuevo start
+                if(start == buscarIndex(searched)){
+                    datos[start-1] = searched;
+                    start--;
+                }else{
+                    int indexOfnewElement=buscarIndex(searched);
+                    //Caso 3: El dato nuevo irá en medio del array
+                    
+                    //Primero recorre los elementos del final a 0
+                    int vueltas;
+                    for (vueltas = end; vueltas > 0; vueltas--) {
+                        if(end == start-1){
+                            
+                        }else{
+                            datos[vueltas+1] = datos[vueltas];
+                        }
+                    }
+                    //Agarra el último elemnto de la lista y lo pasa al principio, para que no se pierda dicho elemento
+                    datos[0] = datos[datos.length-1];
+                    
+                    //Luego recorre los elemntos del final real de la lista 
+                    //hasta el punto donde se insertará el nuevoElemento
+                    for (vueltas = end; vueltas > 0; vueltas--) {
+                        datos[vueltas+1] = datos[vueltas];
+                    }
+                    datos[indexOfnewElement] = searched;
+                }
+            }
+            end++;
+        }*/
