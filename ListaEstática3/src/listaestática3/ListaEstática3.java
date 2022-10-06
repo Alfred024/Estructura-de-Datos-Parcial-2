@@ -150,8 +150,9 @@ class Lista{
     }
 }
 
+/*
 
-/*else{
+else{
             System.out.println("Dato a agregar: "+searched);
             System.out.println("Dónde irá: "+buscarIndex(searched));
             //Caso 1: El dato irá al final 
@@ -187,4 +188,5 @@ class Lista{
                 }
             }
             end++;
-        }*/
+        }
+*/
