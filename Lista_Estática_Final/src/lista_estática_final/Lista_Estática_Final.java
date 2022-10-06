@@ -1,21 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package lista_estática_final;
 
-/**
- *
- * @author solid
- */
 public class Lista_Estática_Final {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        //El out no toma en cuenta el caso que busques un dato que no está en la lista
+        
         Lista x = new Lista(6);
         x.initialize();
         x.in(10);
@@ -24,14 +15,13 @@ public class Lista_Estática_Final {
         x.in(22);
         x.in(20);
         x.in(21);
+        
+        x.out(3);
+        //x.in(8);
 
-        /*Primer elemento--->*/
-        System.out.println(x.datos[0]);
-        /*Segundo elemento--->*/
+        //System.out.println(x.datos[0]);
         System.out.println(x.datos[1]);
-        /*Tercer elemento--->*/
         System.out.println(x.datos[2]);
-        /*Cuarto elemento--->*/
         System.out.println(x.datos[3]); 
         System.out.println(x.datos[4]);
         System.out.println(x.datos[5]);
@@ -65,19 +55,15 @@ class Lista {
             disponibles--;
             if (datos[start] == -1) {
                 datos[start] = toAdd;
-            } else {
+            }else {
                 int posicionNuevoElemnto = buscarIndex(toAdd);
-
                 if (posicionNuevoElemnto == start && start > 0) {
                     datos[start - 1] = toAdd;
                     start--;
                 }
-
                 if (datos[end] < toAdd && end != 0 && posicionNuevoElemnto == end && end < datos.length - 1) {
                     datos[end + 1] = toAdd;
                 } 
-                
-                //Si no pueden cumplirse niguna de las anteriores, a fuerzas tendrá que hacer recorridos
                 else {
                     int limiteSuperior = end;
                     if (casoAoB()) {
@@ -87,11 +73,10 @@ class Lista {
                         recorrerDatos(posicionNuevoElemnto, limiteSuperior + 1);
                     }
                 }
-
                 datos[posicionNuevoElemnto] = toAdd;
                 end++;
             }
-        } else {
+        }else{
             System.out.println("Elemento " + toAdd + " no cabe en la lista");
         }
     }
@@ -134,8 +119,61 @@ class Lista {
         }
     }
     
-    public void recorrerDatosToDelete(){
+    public void out(int toDelete){
+        if(disponibles == datos.length){
+            System.out.println("UNDERFLOW");
+        }else{
+            disponibles++;
+            int posicionElemntoBorrar = buscarIndex(toDelete);
+            if(posicionElemntoBorrar == start){
+                datos[start] = -1;
+                if(start == datos.length-1){
+                    start = 0;
+                }else{
+                    start++;
+                }
+            }
+            if(posicionElemntoBorrar == end){
+                datos[end] = -1;
+                if(end == 0){
+                    end = datos.length-1;
+                }else{
+                    end--;
+                }
+            }
+            else{
+                //Evaluar por dónde será más rápido recorrer todos los datos, por el 
+                //inicio al medio o el medio al final
+                
+                if(casoAoB()){
+                    recorrerDatosToDelete(posicionElemntoBorrar);
+                }else{
+                    
+                }
+                datos[end--] = -1;
+                //end--;
+            }
+        }
+    }
+    
+    //Cumplir caso A y caso B
+    public void recorrerDatosToDelete(int posicionElemntoBorrar){
+        //Caso A
+        int vueltas;
+        for (vueltas = posicionElemntoBorrar; vueltas < datos.length-1; vueltas++) {
+            datos[vueltas] = datos[vueltas+1];
+        }
+        /*if(datos[datos.length-1] != -1){
+            datos[0] = datos[datos.length-1];
+            end = 0;
+        }
         
+        //Caso B
+        if(end > 0){
+            for (vueltas = 1; vueltas < end; vueltas++) {
+                datos[vueltas] = datos[vueltas+1];
+            }
+        }*/
     }
     
     public boolean casoAoB() {
