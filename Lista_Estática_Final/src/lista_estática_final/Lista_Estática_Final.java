@@ -16,10 +16,10 @@ public class Lista_Estática_Final {
         x.in(20);
         x.in(21);
         
-        x.out(3);
-        //x.in(8);
+        //x.out(3);
+        x.in(8);
 
-        //System.out.println(x.datos[0]);
+        System.out.println(x.datos[0]);
         System.out.println(x.datos[1]);
         System.out.println(x.datos[2]);
         System.out.println(x.datos[3]); 

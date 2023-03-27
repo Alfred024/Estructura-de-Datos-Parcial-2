@@ -10,7 +10,10 @@ public class Lista_Circular {
         listaA.add(10); listaA.add(20); listaA.add(15); listaA.add(1); listaA.add(7); listaA.add(6); listaA.add(9); listaA.add(11);listaA.add(100); listaA.add(90);
         listaA.showData();
         
-        listaA.delete(100); listaA.showData();
+        listaA.delete(100); 
+        //listaA.delete(11);
+        listaA.delete(1);
+                listaA.showData();
         
         /*System.out.println("\n\n");
         System.out.println(listaA.start.value);
